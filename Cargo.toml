@@ -1,0 +1,13 @@
+[workspace]
+resolver = "2"
+members = ["crates/common", "crates/loader", "crates/gui"]
+
+[workspace.package]
+version = "0.1.0"
+edition = "2021"
+license = "GPL-2.0-only"
+
+[profile.release]
+opt-level = 2
+lto = "thin"
+strip = true

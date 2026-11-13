@@ -1,0 +1,12 @@
+[Desktop Entry]
+Type=Application
+Name=kerntablet: apply tablet area
+Comment=Re-applies the tablet area for this session's monitor layout
+Exec=/usr/local/bin/kerntablet apply --settle
+TryExec=/usr/local/bin/kerntablet
+NoDisplay=true
+Terminal=false
+# systemd-based sessions run kerntablet-apply.service instead; this entry is
+# for desktops that start XDG autostart entries themselves (XFCE, LXQt, ...).
+X-systemd-skip=true
+X-GNOME-Autostart-enabled=true

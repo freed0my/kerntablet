@@ -1,0 +1,10 @@
+[Desktop Entry]
+Type=Application
+Name=kerntablet
+GenericName=Tablet area settings
+Comment=Tablet area settings (the transform runs in the kernel)
+Exec=kerntablet
+Icon=input-tablet
+Categories=Settings;HardwareSettings;
+Terminal=false
+StartupWMClass=kerntablet

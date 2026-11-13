@@ -1,0 +1,9 @@
+# kerntablet: load the in-kernel area transform (HID-BPF) when a supported
+# tablet shows up, drop its pins when it goes away.
+# Supported (keep in sync with TABLETS in crates/common/src/tablet.rs):
+#   CTL-472 One by Wacom S   056a:037a
+#   CTL-672 One by Wacom M   056a:037b
+#   CTL-480 Intuos Pen S     056a:030e
+#   CTL-470 Bamboo Connect   056a:00dd
+ACTION=="add", SUBSYSTEM=="hid", ENV{HID_ID}=="0003:0000056A:0000037[AB]|0003:0000056A:0000030E|0003:0000056A:000000DD", RUN+="/usr/bin/systemctl --no-block start kerntablet@%k.service"
+ACTION=="remove", SUBSYSTEM=="hid", ENV{HID_ID}=="0003:0000056A:0000037[AB]|0003:0000056A:0000030E|0003:0000056A:000000DD", RUN+="/usr/local/bin/kerntablet-loader detach %k"

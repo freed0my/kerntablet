@@ -1,0 +1,17 @@
+# Re-applies the tablet settings for the monitor layout of each graphical
+# session. Started by graphical-session.target, which GNOME, KDE Plasma,
+# uwsm-managed compositors (Hyprland, sway, ...) and systemd-integrated
+# sessions reach once their environment (WAYLAND_DISPLAY / DISPLAY, ...) has
+# been imported into the systemd user manager.
+[Unit]
+Description=Apply kerntablet tablet area for this graphical session
+PartOf=graphical-session.target
+After=graphical-session.target
+
+[Service]
+Type=oneshot
+# "-": an unplugged tablet is not a failed login.
+ExecStart=-/usr/local/bin/kerntablet apply --settle
+
+[Install]
+WantedBy=graphical-session.target

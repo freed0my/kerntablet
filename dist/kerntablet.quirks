@@ -1,0 +1,28 @@
+# >>> kerntablet
+# libinput averages the last few pen positions of physical tablets, which adds
+# latency. OpenTabletDriver's virtual tablet is exempt from that; do the same
+# for the real device so behaviour stays identical.
+[kerntablet One by Wacom S]
+MatchBus=usb
+MatchVendor=0x056A
+MatchProduct=0x037A
+AttrTabletSmoothing=0
+
+[kerntablet One by Wacom M]
+MatchBus=usb
+MatchVendor=0x056A
+MatchProduct=0x037B
+AttrTabletSmoothing=0
+
+[kerntablet Intuos Pen S]
+MatchBus=usb
+MatchVendor=0x056A
+MatchProduct=0x030E
+AttrTabletSmoothing=0
+
+[kerntablet Bamboo Connect]
+MatchBus=usb
+MatchVendor=0x056A
+MatchProduct=0x00DD
+AttrTabletSmoothing=0
+# <<< kerntablet

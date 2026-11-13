@@ -1,0 +1,6 @@
+[Unit]
+Description=kerntablet: attach the in-kernel tablet area transform to %i
+
+[Service]
+Type=oneshot
+ExecStart=/usr/local/bin/kerntablet-loader attach %i --group input

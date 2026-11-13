@@ -1,0 +1,11 @@
+[package]
+name = "kerntablet"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+
+[dependencies]
+kerntablet-common = { path = "../common" }
+toml = "0.8"
+gtk = "0.18"
+pangocairo = "0.18"
